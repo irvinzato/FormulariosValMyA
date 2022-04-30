@@ -1,0 +1,65 @@
+<!-- El modulo "shared" contendra componentes de manera global en la aplicacion -->
+<h2>Template</h2>
+<hr>
+
+<ul class="list-group">
+
+    <!-- Menu dinámico para template -->
+    <li *ngFor="let item of templateMenu"
+        class="list-group-item"
+        [routerLink]="[ item.ruta ]"
+        routerLinkActive="active">
+        {{ item.texto }}
+    </li>
+</ul>  
+
+
+
+<h2 class="mt-4">Reactive</h2>
+<hr>
+
+<ul class="list-group">
+
+    <!-- Menu dinámico para reactive -->
+    <li *ngFor="let item of reactiveMenu"
+        class="list-group-item"
+        [routerLink]="[ item.ruta ]"
+        routerLinkActive="active">
+        {{ item.texto }}
+    </li>
+</ul>  
+
+
+<h2 class="mt-4">Validaciones</h2>
+<hr>
+
+<ul class="list-group">
+
+    <!-- Menu dinámico para reactive -->
+    <li *ngFor="let item of authMenu"
+        class="list-group-item"
+        [routerLink]="[ item.ruta ]"
+        routerLinkActive="active">
+        {{ item.texto }}
+    </li>
+</ul>  
+    
+    
+
+
+
+
+
+    
+    
+    <!-- Menu donde hacemos cada "li" de forma manual
+    <li class="list-group-item"
+        routerLink="template/basicos">  Para que funcione el routerLink debe estar el "RouterModule" importado en el modulo de shared
+        Básicos
+    </li>
+    <li class="list-group-item"
+        routerLink="template/dinamicos">
+        Dinámicos
+    </li> -->
+
+
