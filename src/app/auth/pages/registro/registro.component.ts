@@ -1,3 +1,4 @@
+import { EmailValidatorService } from './../../../shared/validators/email-validator.service';
 import { ValidatorsService } from './../../../shared/validators/validators.service';
 import { nombreApellidoPatern, emailPattern, noPuedeSerIrvinzato } from './../../../shared/validators/validaciones';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -32,7 +33,7 @@ export class RegistroComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
     nombre: [ '', [ Validators.required, Validators.pattern(this.validatorsService.nombreApellidoPatern) ] ],
-    email: [ '', [ Validators.required, Validators.pattern(this.validatorsService.emailPattern) ] ],
+    email: [ '', [ Validators.required, Validators.pattern(this.validatorsService.emailPattern) ], [ this.emailValidator ] ], //El ultimo argumento son las validaciones ASYNCRONAS y ocupa la inyeccion
     username: [ '', [ Validators.required, this.validatorsService.noPuedeSerIrvinzato ] ],
     password: [ '', [ Validators.required, Validators.minLength(6) ] ],
     confirmPassword: [ '', [ Validators.required ] ]
@@ -41,13 +42,16 @@ export class RegistroComponent implements OnInit {
   });
 
   constructor( private fb: FormBuilder,
-               private validatorsService: ValidatorsService ) { }
+               private validatorsService: ValidatorsService, 
+               private emailValidator: EmailValidatorService ) { }
 
   ngOnInit() {
     this.miFormulario.reset({
       nombre: 'Irving Rivera',
-      email: 'lokillo@hotmail.com',
+      email: 'test1@test.com',
       username: 'lokillo',
+      password: 'lokillo',
+      confirmPassword: 'lokillo',
     });
    
   }
@@ -56,6 +60,12 @@ export class RegistroComponent implements OnInit {
     return this.miFormulario.get(campo).invalid
            && this.miFormulario.get(campo).touched;
   }
+
+
+ /*  emailRequired() {  EN ESTA VERSION NO ME DEJA HACER ESTAS VALIDACIONES, POR EL "?."
+    return this.miFormulario.get('email')?.errors?.required
+           && this.miFormulario.get('email')?.touched;
+  } */
 
   submitFormulario() {
     console.log("Mi formulario value es, ", this.miFormulario.value);

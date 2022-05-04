@@ -1,0 +1,9 @@
+Dentro de nuestra carpeta "formularioAppVal" viene nuestra aplicacion donde continuamos trabajando con formularios de tipo template y tipo reactivos.
+Pero creamos una nueva seccion en "auth" donde podemos encontrar validaciones de registro y login, aqui trabajamos con validaciones reactivas
+y podemos encontrar muchas validaciones utiles en los formularios, con mayor estructuracion y herramientas utilizadas, tambien creamos un apartado donde
+vienen las validaciones y trabajamos con nuevos conocimientos, expresiones regulares, funciones donde ocupamos el formBuild, etc.
+Dentro de la carpeta "formulariosBack" viene nuestro BACKEND ! Aqui debemos entrar desde la terminal a esa ruta y utilizar el comando "json-server --watch db.json"
+de esta manera estara funcional nuestro BACK para poder hacer peticiones
+
+EL BACKEND SE INSTALA DE - https://www.npmjs.com/package/json-server CON EL COMANDO npm i json-server
+ESTE MISMO BACKEND SE UTILIZA EN EL PROYECTO "LazyLoad" pero con otra base de datos
